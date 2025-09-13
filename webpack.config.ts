@@ -1,7 +1,7 @@
 import webpack from "webpack";
 
 import { buildWebpackConfiguration } from "./webpackConfiguration/build/buildWebpackConfiguration/buildWebpackConfiguration";
-import { BuildPaths } from "./webpackConfiguration/build/types/webpackConfiguration";
+import { BuildEnvironmentVariables, BuildPaths } from "./webpackConfiguration/build/types/webpackConfiguration";
 import path from "path";
 
 const PATHS: BuildPaths = {
@@ -10,13 +10,18 @@ const PATHS: BuildPaths = {
   html: path.resolve(__dirname, "public", "index.html"),
 };
 
-const MODE = "development";
-const isDevelopment = MODE === "development";
+export default (env: BuildEnvironmentVariables) => {
+  const MODE = env.mode || "development";
+  const SERVER_PORT = env.port || 5000;
 
-const config: webpack.Configuration = buildWebpackConfiguration({
-  mode: MODE,
-  paths: PATHS,
-  isDevelopment: isDevelopment,
-});
+  const IS_DEVELOPMENT = MODE === "development";
 
-export default config;
+  const webpackConfiguration: webpack.Configuration = buildWebpackConfiguration({
+    mode: MODE,
+    paths: PATHS,
+    isDevelopment: IS_DEVELOPMENT,
+    serverPort: SERVER_PORT,
+  });
+
+  return webpackConfiguration;
+};
