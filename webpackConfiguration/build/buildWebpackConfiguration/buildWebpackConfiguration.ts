@@ -1,9 +1,8 @@
-import { BuildOptions } from "../types/webpackConfiguration";
-
-import { buildPlugins } from "../buildPlugins/buildPlugins";
-import { buildLoaders } from "../buildLoaders/buildLoaders";
-import { buildResolvers } from "../buildResolvers/buildResolvers";
 import { buildDevelopmentServer } from "../buildDevelopmentServer/buildDevelopmentServer";
+import { buildLoaders } from "../buildLoaders/buildLoaders";
+import { buildPlugins } from "../buildPlugins/buildPlugins";
+import { buildResolvers } from "../buildResolvers/buildResolvers";
+import { BuildOptions } from "../types/webpackConfiguration";
 
 export function buildWebpackConfiguration(options: BuildOptions) {
   const { mode, paths, isDevelopment } = options;

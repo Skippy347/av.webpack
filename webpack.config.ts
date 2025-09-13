@@ -1,8 +1,8 @@
+import path from "path";
 import webpack from "webpack";
 
 import { buildWebpackConfiguration } from "./webpackConfiguration/build/buildWebpackConfiguration/buildWebpackConfiguration";
 import { BuildEnvironmentVariables, BuildPaths } from "./webpackConfiguration/build/types/webpackConfiguration";
-import path from "path";
 
 const PATHS: BuildPaths = {
   build: path.resolve(__dirname, "build"),
