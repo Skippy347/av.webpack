@@ -9,7 +9,7 @@
     "build:development": "npx webpack --env mode=development",
     "eslint:fix": "npx eslint --fix .",
     "prettier:fix": "npx prettier --write .",
-    "stylelint:fix": "npx stylelint '**/*.scss' --fix"
+    "stylelint:fix": "npx stylelint \"**/*.scss\" --fix"
   },
   "keywords": [],
   "author": "",
